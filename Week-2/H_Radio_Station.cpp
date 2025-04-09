@@ -20,7 +20,6 @@ int main(){
     ip.pop_back();
     mp[ip].second = name;
     v.push_back({name,ip});
-    
   }
 
   for(auto x : v){

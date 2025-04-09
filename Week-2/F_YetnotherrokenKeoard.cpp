@@ -22,8 +22,7 @@ int main(){
                 lowar--;
             }else{
                 result+=c;
-            }
-            
+            }   
         }
         else if(isupper(c)){
             if(upper > 0){
