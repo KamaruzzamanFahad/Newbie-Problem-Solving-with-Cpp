@@ -1,0 +1,15 @@
+# Force GitHub to treat specific file types as C or C++
+*.c linguist-language=C
+*.h linguist-language=C++
+*.cpp linguist-language=C++
+*.hpp linguist-language=C++
+
+# Optional: Ignore auto-generated files or folders from language stats
+node_modules/* linguist-vendored
+venv/* linguist-vendored
+__pycache__/* linguist-vendored
+build/* linguist-vendored
+dist/* linguist-vendored
+
+# Optional: Mark Jupyter Notebooks as non-countable if needed
+*.ipynb linguist-documentation
