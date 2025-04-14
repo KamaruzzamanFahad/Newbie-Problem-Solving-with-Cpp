@@ -2,6 +2,8 @@
 using namespace std;
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
   int t;
   cin >> t;
 
@@ -30,7 +32,7 @@ multiset<pair<int,int>> ms;
         ms.erase({money, -pos});
 
     }else if(type ==3){
-        auto it  = prev(ms.end());
+        auto it  = --ms.end();
         int pos = -it->second;
         int money = it->first;
         ans.push_back(pos);
