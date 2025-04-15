@@ -16,9 +16,10 @@ multiset<pair<int,int>> ms;
   while (t--)
   {
     int type,money;
-    cin >> type >> money;
+    cin >> type;
 
     if(type ==1){
+      cin >> money;
         st.insert({customerNumer, money});
         ms.insert({money, -customerNumer});
         customerNumer++;
