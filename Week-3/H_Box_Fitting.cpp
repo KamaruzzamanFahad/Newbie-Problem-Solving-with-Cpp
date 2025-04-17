@@ -1,49 +1,50 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-  int t;
-  cin >> t; 
+int main()
+{
+    ios::sync_with_stdio(false);
+   cin.tie(nullptr);
 
-  while (t--)
-  {
-    int n,w;
-    cin >> n >> w;
-    multiset<int, greater<int>>st;
+    int t;
+    cin >> t;
 
-    for(int i=0; i<n; i++){
-        int x;
-        cin >> x;
-        st.insert(x);
+    while (t--)
+    {
+        int n, w;
+        cin >> n >> w;
+        multiset<int> st;
+
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            st.insert(x);
+        }
+
+        int remainging = w;
+        int height =1;
+
+        while (!st.empty())
+        {
+            auto  it = st.upper_bound(remainging);
+
+            if(it != st.begin()){
+                it--;
+                remainging -= *it;
+                st.erase(it);
+            }else{
+                height++;
+                remainging =w;
+                
+            }
+            
+        }
+
+        cout << height << endl;
+
     }
 
-    int height =1;
-    vector<int> spaceLavel;
-
-    for(auto x : st){
-        bool done = false;
-
-            for(int i=0; i< spaceLavel.size();){
-                if(spaceLavel[i] + x <= w ){
-                    spaceLavel[i] += x;
-                    done = true;
-                }else{
-                    height++;
-                    i++;
-                }
-            }
-
-            if(!done){
-                spaceLavel.push_back(x);
-            }
-        
-        
-    }
-
-    cout << height << endl;
-
-
-  }
-  
-  return 0;
+    return 0;
 }
+
