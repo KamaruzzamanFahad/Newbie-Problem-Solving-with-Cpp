@@ -18,7 +18,8 @@ int main(){
     ll i=0;
 
     ll sum =0;
-vector<ll>res;
+    vector<ll>res;
+
     while (i<n)
     {
         if(v[i] <= q){
@@ -57,7 +58,6 @@ vector<ll>res;
     }
     cout << result << endl;
     
-
   }
   
   return 0;
