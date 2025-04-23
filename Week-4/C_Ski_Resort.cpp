@@ -18,7 +18,7 @@ int main(){
     ll i=0;
 
     ll sum =0;
-    vector<ll>res;
+    ll result =0;
 
     while (i<n)
     {
@@ -31,9 +31,9 @@ int main(){
         while(i < n && v[i] > q){
             if(sum > 0){
                 if(sum >= k){
-                    // res.push_back( (sum * (sum+1) /2));
+                    // result+= ( (sum * (sum+1) /2));
                     ll len = sum - k + 1;
-                    res.push_back((len * (len + 1)) / 2);
+                    result+= ((len * (len + 1)) / 2);
                 }
                 
                 sum =0;
@@ -45,17 +45,12 @@ int main(){
 
     if(sum > 0 ) {
         if(sum >= k){
-            // res.push_back( (sum * (sum+1) /2));
+            // result+= ( (sum * (sum+1) /2));
             ll len = sum - k + 1;
-            res.push_back((len * (len + 1)) / 2);
+            result+= ((len * (len + 1)) / 2);
         }
     }
 
-    ll result =0;
-
-    for(auto x : res){
-        result += x;
-    }
     cout << result << endl;
     
   }
