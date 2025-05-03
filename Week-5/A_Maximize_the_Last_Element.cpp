@@ -8,6 +8,7 @@ int main(){
   while (t--)
   {
     int n,mx=INT_MIN;
+    
     cin >> n;
     deque<int> v(n);
     for(int i=0; i<n; i++){
@@ -22,7 +23,8 @@ int main(){
         cout << v[0] << endl;
     }
 
-  }
+  } 
+
   
   return 0;
 }
