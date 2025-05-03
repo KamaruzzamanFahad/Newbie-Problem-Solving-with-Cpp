@@ -1,52 +1,40 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-  int t;
-  cin >> t;
+int main() {
+   ios::sync_with_stdio(false);
+   cin.tie(nullptr);
 
-  while (t--)
-  {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++){
-        cin >> v[i];
-    }
-    string s;
-    cin >> s;
-
-    int l=0,r=0,sum=0, ans =0;
-    vector<int>prefixSum;
-
-    for(int i=0; i<n; i++){
-        sum += v[i];
-        prefixSum.push_back(sum);
-    }
-    
-
-    while (r<n)
-    {
-        if(s[l] == 'L'){
-            sum+= v[r];
-            if(s[r] == 'R'){
-                ans += sum;
-                sum =0;
-                l++;
-                r++;
-            }else{
-                r++;
-            }
-        }else{
+   int t;
+   cin >> t;
+   while (t--) {
+      int n;
+      cin >> n;
+      vector<int> a(n);
+      for (int i = 0;i < n;i++) {
+         cin >> a[i];
+      }
+      string s;
+      cin >> s;
+      vector<long long> pref(n + 1);
+      for (int i = 1;i <= n;i++) {
+         pref[i] = pref[i - 1] + a[i - 1];
+      }
+      int l = 1, r = n;
+      long long ans = 0;
+      while (l < r) {
+         if (s[l - 1] == 'L' && s[r - 1] == 'R') {
+            ans += pref[r] - pref[l - 1];
+            l++, r--;
+         }
+         else if (s[l - 1] != 'L') {
             l++;
-            r++;
-        }
-    }
-    cout << ans << endl;
-    
-
-
-  }
-  
-  return 0;
+         }
+         else if (s[r - 1] != 'R') {
+            r--;
+         }
+      }
+      cout << ans << '\n';
+   }
+   return 0;
 }

@@ -8,7 +8,7 @@ int main(){
   while (t--)
   {
     int n,k;
-    cin >> n >> k;
+    cin >> n >> k; 
     int ans = max(n,( (n-1) * k+1));
     cout << ans << endl;
   }

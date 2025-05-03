@@ -1,44 +1,46 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    vector<int> arr = {94, -33, -13, 40, -82, 94, -33, -13, 40, -82,
+int main()
+{
+    vector<int> arr = {
+        94,
+        -33,
+        -13,
+        40,
+        -82,
+        94,
+        -33,
+        -13,
+        40,
+        -82,
     };
     int k = 52;
 
-    int n = arr.size();
+    long long sum = 0, ans = INT_MIN;
 
-    int l=0,r=0, sum =0, ans = 0;
-    vector<int> v;
+    map<long long, int> mp;
 
-    for(int i=0; i<n; i++){
-        sum+= arr[i];
-        v.push_back(sum);
+    for (long long i = 0; i < arr.size(); i++)
+    {
+        sum += arr[i];
+
+        if(sum == k){
+            ans = i+1;
+        }
+
+        if (mp.find(sum) == mp.end())
+        {
+            mp[sum] = i;
+        }
+
+        
+
+        if (mp.find(sum - k) != mp.end())
+        {
+            ans = max(ans, (i - mp[sum - k]));
+        }
     }
-
-    for(auto x : v){
-        cout << x-k << " ";
-    }
-
-    // while (r<n)
-    // {
-    //     sum += arr[r];
-
-    //     if(sum == k){
-    //         ans = max(ans, r-l+1);
-    //     }
-
-    //     // while (sum > k)
-    //     // {
-    //     //     sum -= arr[l];
-    //     //     l++;
-    //     // }
-
-    //     r++;
-    // }
-
-    // cout << ans << endl;
-    
-  
-  return 0;
+    cout << (ans == INT_MIN ? 0 : ans) << endl;
+    return 0;
 }
