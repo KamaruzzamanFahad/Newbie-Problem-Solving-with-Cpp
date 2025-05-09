@@ -10,18 +10,17 @@ int main(){
     int n,mx=INT_MIN;
     
     cin >> n;
-    deque<int> v(n);
-    for(int i=0; i<n; i++){
-        cin >> v[i];
-        mx = max(mx,v[i]);
-    }
 
-    if(v.size() >= 3){
-        cout << max(v[n-3], v[n-1]) << endl;
-    }else{
-        
-        cout << v[0] << endl;
+    for(int i=1; i<=n; i++){
+      int x;
+      cin >> x;
+
+      if(i%2 !=0){
+        mx = max(mx,x);
+      }
+      
     }
+    cout << mx << endl;
 
   } 
 
